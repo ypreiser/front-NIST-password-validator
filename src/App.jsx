@@ -47,41 +47,8 @@ const PasswordValidator = () => {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto space-y-8">
         <h1 className="text-3xl font-bold text-center text-indigo-600">Password Validator</h1>
-        
-        {/* Info Section */}
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-xl font-bold mb-6">Password Security Guidelines</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <InfoCard title="HIBP (Have I Been Pwned)">
-              <p className="text-gray-600">
-                HIBP checks if your password appears in known data breaches. If a password is found in the database, 
-                it is considered compromised and should not be used.
-              </p>
-            </InfoCard>
-            
-            <InfoCard title="Industry Password Blacklists">
-              <p className="text-gray-600">Password blacklists help prevent the use of commonly known weak passwords.</p>
-              <ul className="list-disc pl-5 text-gray-600">
-                <li>Dictionary words</li>
-                <li>Company-specific terms</li>
-                <li>Context-specific phrases</li>
-                <li>Previously breached passwords</li>
-              </ul>
-            </InfoCard>
-            
-            <InfoCard title="NIST Guidelines (SP 800-63B)">
-              <ul className="list-disc pl-5 text-gray-600">
-                <li>Minimum 8 characters</li>
-                <li>Maximum 64 characters</li>
-                <li>Allow all ASCII and Unicode characters</li>
-                <li>No password hints</li>
-                <li>No periodic changes unless compromised</li>
-              </ul>
-            </InfoCard>
-          </div>
-        </div>
 
-        {/* Main Content */}
+        {/* Main Content - Moved to the top */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Input Section */}
           <div className="bg-white rounded-lg shadow p-6">
@@ -192,12 +159,12 @@ const PasswordValidator = () => {
 
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">
-                  Blacklist (comma-separated):
+                  Blocklist (comma-separated):
                 </label>
                 <textarea
                   value={blacklist}
                   onChange={(e) => setBlacklist(e.target.value)}
-                  placeholder="e.g., password, 123456"
+                  placeholder="e.g., password, admin, website name"
                   rows={4}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                 />
@@ -205,6 +172,46 @@ const PasswordValidator = () => {
             </div>
           </div>
         </div>
+
+{/* Info Section - Moved to the bottom */}
+<div className="bg-white rounded-lg shadow p-6">
+  <h2 className="text-xl font-bold mb-6">Password Security Guidelines</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <InfoCard title="HIBP (Have I Been Pwned)">
+      <p className="text-gray-600">
+        HIBP checks if your password appears in known data breaches. This is in compliance with NIST guidelines, which recommend checking passwords against known breach databases to prevent reuse of compromised credentials. Avoid using passwords found in such databases to enhance security.
+      </p>
+    </InfoCard>
+
+    <InfoCard title="Context-Specific Password Blocklists">
+      <p className="text-gray-600">
+        Context-specific password blocklists, in compliance with NIST guidelines, help ensure stronger password choices by disallowing predictable or commonly used passwords.
+      </p>
+      <ul className="list-disc pl-5 text-gray-600">
+        <li>Common dictionary words</li>
+        <li>Company-specific terms</li>
+        <li>Context-specific phrases (e.g., project names)</li>
+      </ul>
+    </InfoCard>
+
+    <InfoCard title="NIST Guidelines (SP 800-63B)">
+      <ul className="list-disc pl-5 text-gray-600">
+        <li>Passwords must be at least 8 characters long (15 characters or more recommended).</li>
+        <li>Allow passwords up to at least 64 characters.</li>
+        <li>Support all printable ASCII characters and spaces.</li>
+        <li>Unicode characters are recommended, with each code point counted as one character.</li>
+        <li>Avoid enforcing composition rules (e.g., requiring a mix of character types).</li>
+        <li>Do not require periodic password changes unless there is evidence of compromise.</li>
+        <li>Do not allow password hints accessible to unauthenticated users.</li>
+        <li>Avoid using knowledge-based authentication (KBA) as part of password verification.</li>
+        <li>Always validate the full password as submitted; do not truncate or alter it.</li>
+      </ul>
+    </InfoCard>
+
+  </div>
+</div>
+
       </div>
     </div>
   );
