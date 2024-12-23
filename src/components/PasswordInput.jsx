@@ -5,7 +5,6 @@ const PasswordInput = ({
   setPassword,
   showPassword,
   setShowPassword,
-  minLength,
   handleValidate,
   isValidating,
   validationResult,
@@ -22,7 +21,7 @@ const PasswordInput = ({
         <b>Forget complex rules and focus on length.</b>
         <ul className="list-disc pl-5">
           <li>
-            <b>Length is Key:</b> Aim for at least {minLength} characters, the
+            <b>Length is Key:</b> Aim for at least 8 characters, the
             longer the better.
           </li>
           <li>

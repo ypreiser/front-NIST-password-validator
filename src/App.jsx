@@ -9,11 +9,18 @@ const PasswordValidator = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [minLength, setMinLength] = useState(15);
-  const [maxLength, setMaxLength] = useState(64);
+  const [maxLength, setMaxLength] = useState(100000);
   const [hibpCheck, setHibpCheck] = useState(true);
   const [blocklist, setBlocklist] = useState("");
   const [validationResult, setValidationResult] = useState(null);
   const [isValidating, setIsValidating] = useState(false);
+  const [matchingSensitivity, setMatchingSensitivity] = useState(0.25);
+  const [MinEditDistance, setMinEditDistance] = useState(0)
+  const [MaxEditDistance, setMaxEditDistance] = useState(5)
+  const [trimWhitespace, setTrimWhitespace ] = useState(true);
+
+
+  
 
   const handleValidate = async () => {
     setIsValidating(true);
@@ -23,9 +30,12 @@ const PasswordValidator = () => {
         maxLength,
         hibpCheck,
         blocklist: blocklist
-          .split(",")
-          .map((item) => item.trim())
-          .filter(Boolean),
+        .split(",")
+        .filter(Boolean),
+        matchingSensitivity,
+        trimWhitespace,
+        MinEditDistance,
+        MaxEditDistance
       });
       setValidationResult(result);
     } catch (error) {
@@ -51,7 +61,6 @@ const PasswordValidator = () => {
             setPassword={setPassword}
             showPassword={showPassword}
             setShowPassword={setShowPassword}
-            minLength={minLength}
             handleValidate={handleValidate}
             isValidating={isValidating}
             validationResult={validationResult}
@@ -66,6 +75,14 @@ const PasswordValidator = () => {
             setHibpCheck={setHibpCheck}
             blocklist={blocklist}
             setBlocklist={setBlocklist}
+            matchingSensitivity={matchingSensitivity}
+            setMatchingSensitivity={setMatchingSensitivity}
+            trimWhitespace={trimWhitespace}
+            setTrimWhitespace={setTrimWhitespace}
+            MinEditDistance={MinEditDistance}
+            setMinEditDistance={setMinEditDistance}
+            MaxEditDistance={MaxEditDistance}
+            setMaxEditDistance={setMaxEditDistance}
           />
         </div>
 
