@@ -52,6 +52,7 @@ const PasswordInput = ({
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            // pattern="u"
             placeholder="Enter your password"
             autoComplete="new-password"
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"

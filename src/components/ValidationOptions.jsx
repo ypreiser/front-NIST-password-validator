@@ -18,10 +18,10 @@ const ValidationOptions = ({
   MaxEditDistance,
   setMaxEditDistance,
 }) => (
-  <div className="bg-white rounded-lg shadow p-6">
-    <h2 className="text-xl font-bold mb-6">Validation Options</h2>
-    <div className="space-y-4">
-      <div className="space-y-2">
+  <div className="bg-white rounded-lg shadow p-4">
+    <h2 className="text-lg font-bold mb-4">Validation Options</h2>
+    <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
           Minimum Length:
         </label>
@@ -31,11 +31,11 @@ const ValidationOptions = ({
           onChange={(e) => setMinLength(parseInt(e.target.value))}
           min="1"
           max="64"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
           Maximum Length:
         </label>
@@ -45,44 +45,44 @@ const ValidationOptions = ({
           onChange={(e) => setMaxLength(parseInt(e.target.value))}
           min="1"
           max="64"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
           HIBP Check:
         </label>
         <select
           value={hibpCheck.toString()}
           onChange={(e) => setHibpCheck(e.target.value === "true")}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
         >
           <option value="true">Enabled</option>
           <option value="false">Disabled</option>
         </select>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">
-          Trim leading and trailing whitespace from passwords and blocklist 
+          Trim Whitespace:
         </label>
         <select
           value={trimWhitespace.toString()}
           onChange={(e) => setTrimWhitespace(e.target.value === "true")}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
         >
           <option value="true">Enabled</option>
           <option value="false">Disabled</option>
         </select>
       </div>
 
-      <div className="bg-gray-50 p-4 rounded-lg">
-        <h3 className="text-lg font-semibold mb-4 text-gray-800">
+      <div className="col-span-2 bg-gray-100 border-4 p-3 rounded-lg ">
+        <h3 className="text-sm font-semibold mb-2 text-gray-800">
           Blocklist Options
         </h3>
-        <div className="space-y-4">
-          <div className="space-y-2">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="col-span-2 space-y-1">
             <label className="block text-sm font-medium text-gray-700">
               Blocklist (comma-separated):
             </label>
@@ -91,11 +91,11 @@ const ValidationOptions = ({
               onChange={(e) => setBlocklist(e.target.value)}
               placeholder="e.g., password, admin, website name"
               rows={2}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="block text-sm font-medium text-gray-700">
               Matching Sensitivity:
             </label>
@@ -108,33 +108,33 @@ const ValidationOptions = ({
               min="0"
               max="1"
               step="0.05"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="block text-sm font-medium text-gray-700">
-              Minimum Edit Distance:
+              Min Edit Distance:
             </label>
             <input
               type="number"
               value={MinEditDistance}
               onChange={(e) => setMinEditDistance(parseInt(e.target.value))}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="block text-sm font-medium text-gray-700">
-              Maximum Edit Distance:
+              Max Edit Distance:
             </label>
             <input
               type="number"
               value={MaxEditDistance}
               onChange={(e) => setMaxEditDistance(parseInt(e.target.value))}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
         </div>
