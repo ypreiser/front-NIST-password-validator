@@ -68,6 +68,11 @@ const GuidelinesSection = () => (
             Always validate the full password as submitted; do not truncate or
             alter it.
           </li>
+          <li>
+            May remove leading and trailing whitespace from passwords to prevent user errors.
+            Length validation occurs after trimming
+
+          </li>
         </ul>
       </InfoCard>
     </div>
