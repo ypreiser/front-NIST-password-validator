@@ -13,8 +13,6 @@ const ValidationOptions = ({
   setMatchingSensitivity,
   trimWhitespace,
   setTrimWhitespace,
-  MinEditDistance,
-  setMinEditDistance,
   MaxEditDistance,
   setMaxEditDistance,
 }) => (
@@ -112,18 +110,7 @@ const ValidationOptions = ({
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="block text-sm font-medium text-gray-700">
-              Min Edit Distance:
-            </label>
-            <input
-              type="number"
-              value={MinEditDistance}
-              onChange={(e) => setMinEditDistance(parseInt(e.target.value))}
-              min="0"
-              className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </div>
+          
 
           <div className="space-y-1">
             <label className="block text-sm font-medium text-gray-700">
@@ -156,8 +143,6 @@ ValidationOptions.propTypes = {
   setMatchingSensitivity: PropTypes.func.isRequired,
   trimWhitespace: PropTypes.bool.isRequired,
   setTrimWhitespace: PropTypes.func.isRequired,
-  MinEditDistance: PropTypes.number.isRequired,
-  setMinEditDistance: PropTypes.func.isRequired,
   MaxEditDistance: PropTypes.number.isRequired,
   setMaxEditDistance: PropTypes.func.isRequired,
 };
