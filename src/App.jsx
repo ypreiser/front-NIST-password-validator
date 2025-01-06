@@ -15,27 +15,34 @@ const PasswordValidator = () => {
   const [validationResult, setValidationResult] = useState(null);
   const [isValidating, setIsValidating] = useState(false);
   const [matchingSensitivity, setMatchingSensitivity] = useState(0.25);
-  const [MinEditDistance, setMinEditDistance] = useState(0)
-  const [MaxEditDistance, setMaxEditDistance] = useState(5)
-  const [trimWhitespace, setTrimWhitespace ] = useState(true);
-
-
-  
+  const [MinEditDistance, setMinEditDistance] = useState(0);
+  const [MaxEditDistance, setMaxEditDistance] = useState(5);
+  const [trimWhitespace, setTrimWhitespace] = useState(true);
+  const [userName, setUserName] = useState("userName");
 
   const handleValidate = async () => {
+    if (!password) {
+      setValidationResult({
+        isValid: false,
+        errors: ["Password is required"],
+      });
+      return;
+    }
+    //add userName to blocklist
+    if (!blocklist.includes(userName)) {
+      setBlocklist(blocklist + "," + userName);
+    }
     setIsValidating(true);
     try {
       const result = await validatePassword(password, {
         minLength,
         maxLength,
         hibpCheck,
-        blocklist: blocklist
-        .split(",")
-        .filter(Boolean),
+        blocklist: blocklist.split(",").filter(Boolean),
         matchingSensitivity,
         trimWhitespace,
         MinEditDistance,
-        MaxEditDistance
+        MaxEditDistance,
       });
       setValidationResult(result);
     } catch (error) {
@@ -64,6 +71,8 @@ const PasswordValidator = () => {
             handleValidate={handleValidate}
             isValidating={isValidating}
             validationResult={validationResult}
+            userName={userName}
+            setUserName={setUserName}
           />
 
           <ValidationOptions

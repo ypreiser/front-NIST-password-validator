@@ -44,7 +44,7 @@ const ValidationOptions = ({
           value={maxLength}
           onChange={(e) => setMaxLength(parseInt(e.target.value))}
           min="1"
-          max="64"
+          max="100000000000000"
           className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>

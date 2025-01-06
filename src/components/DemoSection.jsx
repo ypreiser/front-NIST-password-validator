@@ -1,3 +1,6 @@
+import dependencies from "../../package.json"
+let v = dependencies.dependencies["nist-password-validator"].substring(1)
+
 const DemoSection = () => (
   <div className="mb-6 text-center p-4 border border-gray-300 rounded-md bg-gray-100">
     <p className="text-lg font-semibold">
@@ -10,7 +13,7 @@ const DemoSection = () => (
       >
         nist-password-validator
       </a>{" "}
-      library. (v2.0.0)
+      library. ({v})
     </p>
     <p className="text-lg mt-2">
       A lightweight, zero-dependencies open-source password validator according
