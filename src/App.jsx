@@ -18,19 +18,11 @@ const PasswordValidator = () => {
   const [MinEditDistance, setMinEditDistance] = useState(0);
   const [MaxEditDistance, setMaxEditDistance] = useState(5);
   const [trimWhitespace, setTrimWhitespace] = useState(true);
-  const [userName, setUserName] = useState("userName");
+  const [userName, setUserName] = useState("username");
 
   const handleValidate = async () => {
-    if (!password) {
-      setValidationResult({
-        isValid: false,
-        errors: ["Password is required"],
-      });
-      return;
-    }
-    //add userName to blocklist
     if (!blocklist.includes(userName)) {
-      setBlocklist(blocklist + "," + userName);
+      setBlocklist(userName + ", " + blocklist);
     }
     setIsValidating(true);
     try {

@@ -48,7 +48,10 @@ const PasswordInput = ({
       <form>
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            User Name:
+            User Name: <br />
+            (personal information is added to blockList for better security.{" "}
+            <br />
+            not included in nist-password-validator library)
           </label>
 
           <input
