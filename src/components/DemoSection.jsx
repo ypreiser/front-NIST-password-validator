@@ -13,7 +13,7 @@ const DemoSection = () => (
       >
         nist-password-validator
       </a>{" "}
-      library. ({v})
+      library. (v {v})
     </p>
     <p className="text-lg mt-2">
       A lightweight, zero-dependencies open-source password validator according
