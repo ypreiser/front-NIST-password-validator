@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ValidationOptions = ({
+function ValidationOptions  ({
   minLength,
   setMinLength,
   maxLength,
@@ -17,7 +17,14 @@ const ValidationOptions = ({
   setMaxEditDistance,
   errorLimit,
   setErrorLimit
-}) => (
+}) {
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setErrorLimit(value === "" ? Infinity : parseInt(value));
+  };
+
+
+return  (
   <div className="bg-white rounded-lg shadow p-4">
     <h2 className="text-lg font-bold mb-4">Validation Options</h2>
     <div className="grid grid-cols-2 gap-4">
@@ -78,19 +85,19 @@ const ValidationOptions = ({
       </div>
 
       <div className="space-y-1">
-        <label className="block text-sm font-medium text-gray-700">
-          Error Limit:
-        </label>
-        <input
-          type="number"
-          value={errorLimit}
-          onChange={(e) => setErrorLimit(parseInt(e.target.value))}
-          min="1"
-          max="Infinity"
-          className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-        />
-      </div>
-
+      <label className="block text-sm font-medium text-gray-700">
+        Error Limit:
+      </label>
+      <input
+        type="number"
+        value={errorLimit === Infinity ? "" : errorLimit}
+        onChange={handleChange}
+        min="1"
+        className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Infinity"
+      />
+      
+    </div>
       <div className="col-span-2 bg-gray-100 border-4 p-3 rounded-lg ">
         <h3 className="text-sm font-semibold mb-2 text-gray-800">
           Blocklist Options
@@ -144,7 +151,7 @@ const ValidationOptions = ({
       </div>
     </div>
   </div>
-);
+  )};
 
 ValidationOptions.propTypes = {
   minLength: PropTypes.number.isRequired,
