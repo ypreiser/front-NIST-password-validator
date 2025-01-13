@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "nist-password-validator": "^2.0.2",
+    "nist-password-validator": "^2.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

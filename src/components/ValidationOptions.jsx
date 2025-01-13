@@ -15,6 +15,8 @@ const ValidationOptions = ({
   setTrimWhitespace,
   MaxEditDistance,
   setMaxEditDistance,
+  errorLimit,
+  setErrorLimit
 }) => (
   <div className="bg-white rounded-lg shadow p-4">
     <h2 className="text-lg font-bold mb-4">Validation Options</h2>
@@ -73,6 +75,20 @@ const ValidationOptions = ({
           <option value="true">Enabled</option>
           <option value="false">Disabled</option>
         </select>
+      </div>
+
+      <div className="space-y-1">
+        <label className="block text-sm font-medium text-gray-700">
+          Error Limit:
+        </label>
+        <input
+          type="number"
+          value={errorLimit}
+          onChange={(e) => setErrorLimit(parseInt(e.target.value))}
+          min="1"
+          max="Infinity"
+          className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+        />
       </div>
 
       <div className="col-span-2 bg-gray-100 border-4 p-3 rounded-lg ">
@@ -145,6 +161,8 @@ ValidationOptions.propTypes = {
   setTrimWhitespace: PropTypes.func.isRequired,
   MaxEditDistance: PropTypes.number.isRequired,
   setMaxEditDistance: PropTypes.func.isRequired,
+  errorLimit: PropTypes.number.isRequired,
+  setErrorLimit: PropTypes.func.isRequired
 };
 
 export default ValidationOptions;

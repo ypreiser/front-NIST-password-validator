@@ -18,6 +18,7 @@ const PasswordValidator = () => {
   const [MaxEditDistance, setMaxEditDistance] = useState(5);
   const [trimWhitespace, setTrimWhitespace] = useState(true);
   const [userName, setUserName] = useState("username");
+  const [errorLimit, setErrorLimit] = useState(Infinity)
 
   const handleValidate = async () => {
     if (!blocklist.includes(userName)) {
@@ -33,6 +34,7 @@ const PasswordValidator = () => {
         matchingSensitivity,
         trimWhitespace,
         MaxEditDistance,
+        errorLimit
       });
       setValidationResult(result);
     } catch (error) {
@@ -80,6 +82,8 @@ const PasswordValidator = () => {
             setTrimWhitespace={setTrimWhitespace}
             MaxEditDistance={MaxEditDistance}
             setMaxEditDistance={setMaxEditDistance}
+            errorLimit={errorLimit}
+            setErrorLimit={setErrorLimit}
           />
         </div>
 
