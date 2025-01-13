@@ -86,7 +86,7 @@ return  (
 
       <div className="space-y-1">
       <label className="block text-sm font-medium text-gray-700">
-        Error Limit:
+        Error Limit: (Amount of errors to check before stopping)
       </label>
       <input
         type="number"
@@ -96,7 +96,7 @@ return  (
         className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
         placeholder="Infinity"
       />
-      
+
     </div>
       <div className="col-span-2 bg-gray-100 border-4 p-3 rounded-lg ">
         <h3 className="text-sm font-semibold mb-2 text-gray-800">

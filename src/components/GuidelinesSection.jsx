@@ -6,11 +6,16 @@ const GuidelinesSection = () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <InfoCard title="HIBP (Have I Been Pwned)">
         <p className="text-gray-600">
-          HIBP checks if your password appears in known data breaches. This is
-          in compliance with NIST guidelines, which recommend checking passwords
-          against known breach databases to prevent reuse of compromised
-          credentials. Avoid using passwords found in such databases to enhance
-          security.
+          HIBP (Have I Been Pwned) checks whether your password appears in known
+          data breaches, aligning with NIST guidelines. These guidelines
+          recommend verifying passwords against breach databases to prevent the
+          reuse of compromised passwords.{" "}
+        </p>
+        <p className="text-gray-600">
+          The HIBP database contains nearly 1 billion unique passwords. While
+          this number might seem large, a hacker with a modern computers can try
+          them all within seconds using brute-force. Avoid using passwords found
+          in such databases to enhance your security.
         </p>
       </InfoCard>
 
@@ -24,10 +29,11 @@ const GuidelinesSection = () => (
           <li>Common dictionary words</li>
           <li>Company-specific terms</li>
           <li>Context-specific phrases (e.g., project names)</li>
+          <li>Users personal information (e.g., name, email, date of birth)</li>
         </ul>
       </InfoCard>
 
-      <InfoCard title="NIST Guidelines (SP 800-63B)">
+      <InfoCard title="NIST Guidelines Key Points (SP 800-63B)">
         <ul className="list-disc pl-5 text-gray-600">
           <li>
             <a
@@ -69,9 +75,8 @@ const GuidelinesSection = () => (
             alter it.
           </li>
           <li>
-            May remove leading and trailing whitespace from passwords to prevent user errors.
-            Length validation occurs after trimming
-
+            May remove leading and trailing whitespace from passwords to prevent
+            user errors. Length validation occurs after trimming
           </li>
         </ul>
       </InfoCard>

@@ -29,7 +29,7 @@ const DemoSection = () => (
       >
         GitHub repository
       </a>{" "}
-      for more information.
+      for more information. leave a star ⭐ if you like it!
     </p>
   </div>
 );
