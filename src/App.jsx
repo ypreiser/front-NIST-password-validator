@@ -15,7 +15,7 @@ const PasswordValidator = () => {
   const [validationResult, setValidationResult] = useState(null);
   const [isValidating, setIsValidating] = useState(false);
   const [matchingSensitivity, setMatchingSensitivity] = useState(0.25);
-  const [MaxEditDistance, setMaxEditDistance] = useState(5);
+  const [maxEditDistance, setMaxEditDistance] = useState(5);
   const [trimWhitespace, setTrimWhitespace] = useState(true);
   const [userName, setUserName] = useState("username");
   const [errorLimit, setErrorLimit] = useState(Infinity)
@@ -33,7 +33,7 @@ const PasswordValidator = () => {
         blocklist: blocklist.split(",").filter(Boolean),
         matchingSensitivity,
         trimWhitespace,
-        MaxEditDistance,
+        maxEditDistance,
         errorLimit
       });
       setValidationResult(result);
@@ -80,7 +80,7 @@ const PasswordValidator = () => {
             setMatchingSensitivity={setMatchingSensitivity}
             trimWhitespace={trimWhitespace}
             setTrimWhitespace={setTrimWhitespace}
-            MaxEditDistance={MaxEditDistance}
+            maxEditDistance={maxEditDistance}
             setMaxEditDistance={setMaxEditDistance}
             errorLimit={errorLimit}
             setErrorLimit={setErrorLimit}

@@ -13,7 +13,7 @@ function ValidationOptions  ({
   setMatchingSensitivity,
   trimWhitespace,
   setTrimWhitespace,
-  MaxEditDistance,
+  maxEditDistance,
   setMaxEditDistance,
   errorLimit,
   setErrorLimit
@@ -141,7 +141,7 @@ return  (
             </label>
             <input
               type="number"
-              value={MaxEditDistance}
+              value={maxEditDistance}
               onChange={(e) => setMaxEditDistance(parseInt(e.target.value))}
               min="0"
               className="w-full px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
@@ -166,7 +166,7 @@ ValidationOptions.propTypes = {
   setMatchingSensitivity: PropTypes.func.isRequired,
   trimWhitespace: PropTypes.bool.isRequired,
   setTrimWhitespace: PropTypes.func.isRequired,
-  MaxEditDistance: PropTypes.number.isRequired,
+  maxEditDistance: PropTypes.number.isRequired,
   setMaxEditDistance: PropTypes.func.isRequired,
   errorLimit: PropTypes.number.isRequired,
   setErrorLimit: PropTypes.func.isRequired
